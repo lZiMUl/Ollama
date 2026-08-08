@@ -1,0 +1,12 @@
+{
+  "entryPoints": ["./src/**/*.ts"],
+  "out": "./docs/",
+  "readme": "README.md",
+  "name": "Ollama",
+  "tsconfig": "./tsconfig.json",
+  "gitRemote": "Ollama",
+  "gitRevision": "main",
+  "excludePrivate": true,
+  "excludeInternal": true,
+  "categorizeByGroup": true
+}

@@ -1,0 +1,12 @@
+{
+  "entryPoints": ["./src/**/*.ts"],
+  "out": "./docs/",
+  "readme": "README.md",
+  "name": "MCP",
+  "tsconfig": "./tsconfig.json",
+  "gitRemote": "MCP",
+  "gitRevision": "main",
+  "excludePrivate": true,
+  "excludeInternal": true,
+  "categorizeByGroup": true
+}
