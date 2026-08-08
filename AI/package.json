@@ -57,10 +57,10 @@
   "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lZiMUl/AI.git"
+    "url": "git+https://github.com/lZiMUl/Ollama.git"
   },
   "bugs": {
-    "url": "https://github.com/lZiMUl/AI/issues",
+    "url": "https://github.com/lZiMUl/Ollama/issues",
     "email": "lZiMUl@lzimul.com"
   },
   "publishConfig": {
