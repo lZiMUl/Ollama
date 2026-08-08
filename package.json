@@ -9,7 +9,7 @@
     "mcp": "npm run dev --workspace=@lzimul/mcp",
     "ollama": "npm run dev --workspace=@lzimul/ollama",
     "dev": "npm run all",
-    "all": "npx concurrently -n AI,MCP,Ollama -c cyan,magenta,green -p name \"npm run ai\" \"npm run mcp\" \"npm run ollama\"",
+    "all": "concurrently -n AI,MCP,Ollama -c cyan,magenta,green -p name \"npm run ai\" \"npm run mcp\" \"npm run ollama\"",
     "test": "echo Done"
   },
   "devDependencies": {

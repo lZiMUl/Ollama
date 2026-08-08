@@ -27,9 +27,9 @@
   "license": "MIT",
   "scripts": {
     "start": "node .",
-    "lint": "npx eslint --fix",
-    "build": "npm run lint && npx tsc -p ./tsconfig.json && npm run typedoc",
-    "typedoc": "npx typedoc --options ./typedoc.json",
+    "lint": "eslint --fix",
+    "build": "npm run lint && tsc -p ./tsconfig.json && npm run typedoc",
+    "typedoc": "typedoc --options ./typedoc.json",
     "dev": "npm run build && npm run start",
     "test": "echo Done"
   },
