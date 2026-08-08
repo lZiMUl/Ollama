@@ -1,5 +1,5 @@
+import { randomUUID } from 'node:crypto';
 import Router from '@koa/router';
-
 import {
   Implementation,
   McpServer,
@@ -7,28 +7,30 @@ import {
 } from '@modelcontextprotocol/server';
 import { NodeStreamableHTTPServerTransport } from '@modelcontextprotocol/node';
 
-const router = new Router({
-  prefix: '/mcp'
-});
-
 class MCP extends McpServer {
+  private readonly router: Router;
+
   public constructor(serverInfo: Implementation, options?: ServerOptions) {
     super(serverInfo, options);
 
-    router.post('/', async ctx => {
+    this.router = new Router({
+      prefix: '/mcp'
+    });
+
+    this.router.post('/', async ctx => {
       const transport = new NodeStreamableHTTPServerTransport({
-        sessionIdGenerator: undefined
+        sessionIdGenerator: (): string => randomUUID()
       });
 
       await super.connect(transport);
 
-      await transport.handleRequest(ctx.req, ctx.res, ctx.request.body);
+      await transport.handleRequest(ctx.req, ctx.res);
 
       ctx.respond = false;
     });
   }
   public get getRouter() {
-    return router.routes();
+    return this.router;
   }
 }
 

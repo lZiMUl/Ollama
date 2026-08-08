@@ -54,6 +54,7 @@
     "MCP"
   ],
   "dependencies": {
+    "@koa/bodyparser": "^6.1.0",
     "@modelcontextprotocol/node": "^2.0.0",
     "@modelcontextprotocol/server": "^2.0.0"
   },

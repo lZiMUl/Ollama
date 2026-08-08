@@ -1,4 +1,5 @@
 import Koa from 'koa';
+import { bodyParser } from '@koa/bodyparser';
 import AI, { IAIConfig } from '@lzimul/ai';
 import MCP from '@lzimul/mcp';
 import { ListenOptions } from 'net';
@@ -11,6 +12,7 @@ class Ollama extends Koa {
 
   public constructor(config: ListenOptions, listeningListener?: () => void) {
     super();
+    super.use(bodyParser());
     super.use(async (ctx, next) => {
       if (ctx.method === 'POST' && ctx.path === '/v1/chat') {
         ctx.path = '/v1/chat/completions';
@@ -34,7 +36,7 @@ class Ollama extends Koa {
   }
   public addMCP(mcp: MCP) {
     Ollama.MCP.push(mcp);
-    super.use(mcp.getRouter);
+    super.use(mcp.getRouter.routes()).use(mcp.getRouter.allowedMethods());
   }
 
   public static get getAgent() {

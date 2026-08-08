@@ -54,6 +54,7 @@
     "Ollama"
   ],
   "dependencies": {
+    "@koa/bodyparser": "^6.1.0",
     "@koa/router": "^15.7.0",
     "@lzimul/ai": "^1.2.2",
     "koa": "^3.2.1"
