@@ -4,12 +4,17 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "agent": "npm run dev --workspace=@lzimul/agent",
-    "ai": "npm run dev --workspace=@lzimul/ai",
-    "mcp": "npm run dev --workspace=@lzimul/mcp",
-    "ollama": "npm run dev --workspace=@lzimul/ollama",
+    "dev:agent": "npm run dev --workspace=@lzimul/agent",
+    "dev:ai": "npm run dev --workspace=@lzimul/ai",
+    "dev:mcp": "npm run dev --workspace=@lzimul/mcp",
+    "dev:ollama": "npm run dev --workspace=@lzimul/ollama",
+    "build:agent": "npm run build --workspace=@lzimul/agent",
+    "build:ai": "npm run build --workspace=@lzimul/ai",
+    "build:mcp": "npm run build --workspace=@lzimul/mcp",
+    "build:ollama": "npm run build --workspace=@lzimul/ollama",
+    "build": "npm run build:ai && npm run build:mcp && npm run build:ollama",
     "dev": "npm run all",
-    "all": "concurrently -n AI,MCP,Ollama -c cyan,magenta,green -p name \"npm run ai\" \"npm run mcp\" \"npm run ollama\"",
+    "all": "concurrently -n AI,MCP,Ollama -c cyan,magenta,green -p name \"npm run dev:ai\" \"npm run dev:mcp\" \"npm run dev:ollama\"",
     "test": "echo Done"
   },
   "devDependencies": {

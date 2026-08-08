@@ -25,20 +25,11 @@ jobs:
       - name: Ensure latest npm
         run: npm install -g npm@latest
 
-      - name: Install dependencies for workspace
+      - name: Install dependencies
         run: npm ci
 
-      - name: Install dependencies for ollama
-        run: npm ci --workspace=@lzimul/ollama
-
-      - name: Install dependencies for ai
-        run: npm ci --workspace=@lzimul/ai
-
-      - name: Install dependencies for mcp
-        run: npm ci --workspace=@lzimul/mcp
-
       - name: Build project
-        run: npm run dev
+        run: npm run build
 
       - name: Run tests
         run: npm test
