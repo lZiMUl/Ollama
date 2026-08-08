@@ -1,0 +1,9 @@
+/.idea/
+/.git/
+/**/build/
+/**/docs/
+/**/lib/
+/**/node_modules/
+/tsconfig.tsbuildinfo
+
+/**/*.js

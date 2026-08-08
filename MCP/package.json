@@ -1,0 +1,76 @@
+{
+  "name": "@lzimul/mcp",
+  "description": "MCP",
+  "version": "1.2.2",
+  "author": {
+    "name": "lZiMUl",
+    "email": "lZiMUl@lzimul.com",
+    "url": "https://www.lzimul.com"
+  },
+  "contributors": [
+    {
+      "name": "lZiMUl",
+      "email": "lZiMUl@lzimul.com",
+      "url": "https://www.lzimul.com"
+    }
+  ],
+  "maintainers": [
+    {
+      "name": "lZiMUl",
+      "email": "lZiMUl@lzimul.com",
+      "url": "https://www.lzimul.com"
+    }
+  ],
+  "homepage": "https://projects.lzimul.com/MCP",
+  "main": "./build/index.js",
+  "types": "./lib/index.d.ts",
+  "license": "MIT",
+  "scripts": {
+    "start": "node .",
+    "lint": "npx eslint --fix",
+    "build": "npm run lint && npx tsc -p ./tsconfig.json && npm run typedoc",
+    "typedoc": "npx typedoc --options ./typedoc.json",
+    "dev": "npm run build && npm run start",
+    "test": "echo Done"
+  },
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "import": "./build/index.js",
+      "require": "./build/index.js",
+      "default": "./build/index.js"
+    }
+  },
+  "files": [
+    "./build/",
+    "./lib/",
+    "./LICENSE",
+    "./CHANGELOG.md",
+    "./README.md",
+    "./SECURITY.md"
+  ],
+  "keywords": [
+    "lZiMUl",
+    "MCP"
+  ],
+  "dependencies": {
+    "@modelcontextprotocol/node": "^2.0.0",
+    "@modelcontextprotocol/server": "^2.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lZiMUl/MCP.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lZiMUl/MCP/issues",
+    "email": "lZiMUl@lzimul.com"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org",
+    "provenance": true,
+    "access": "public",
+    "tag": "latest"
+  },
+  "sideEffects": false,
+  "private": false
+}

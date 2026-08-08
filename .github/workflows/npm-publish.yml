@@ -1,0 +1,56 @@
+name: Node.js Package
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment: production
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          registry-url: https://registry.npmjs.org/
+
+      - name: Ensure latest npm
+        run: npm install -g npm@latest
+
+      - name: Install dependencies for workspace
+        run: npm ci
+
+      - name: Install dependencies for ollama
+        run: npm ci --workspace=@lzimul/ollama
+
+      - name: Install dependencies for ai
+        run: npm ci --workspace=@lzimul/ai
+
+      - name: Install dependencies for mcp
+        run: npm ci --workspace=@lzimul/mcp
+
+      - name: Build project
+        run: npm run dev
+
+      - name: Run tests
+        run: npm test
+
+      - name: Print message
+        run: echo "📦 Publishing package..."
+
+      - name: Publish package for ollama
+        run: npm publish --workspace=@lzimul/ollama
+
+      - name: Publish package for ai
+        run: npm publish --workspace=@lzimul/ai
+
+      - name: Publish package for mcp
+        run: npm publish --workspace=@lzimul/mcp
